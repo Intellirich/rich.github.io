@@ -56,7 +56,7 @@
 	// 		}
 		
 	// }).addTo(map);
-			var URL2 = 'http://anyorigin.com/get?url=http%3A//localhost%3A8080/geoserver/BIopen/ows%3Fservice%3DWFS%26version%3D1.0.0%26request%3DGetFeature%26typeName%3DBIopen%253Agrandi_strutt_vendita%26maxFeatures%3D50%26outputFormat%3Dapplication%252Fjson&callback=?'
+			
 
 			console.log(URL);
 
@@ -81,7 +81,7 @@
 				
 			};
 				$.ajax({
-				url: URL2,
+				url: URL,
 				dataType: 'jsonp',
 				success: loadGeoJson
 			});
