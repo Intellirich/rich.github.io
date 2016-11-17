@@ -61,13 +61,13 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				geojson.addData(data);
 				geojson.addTo(map);
 
-				
-			};
 				$.ajax({
 				url: URL,
 				dataType: 'json',
 				success: loadGeoJson
 			});
+				
+			};
 
 			
 
