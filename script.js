@@ -1,10 +1,6 @@
 var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
-			// var strutture = L.tileLayer.wms("http://localhost:8080/geoserver/BIopen/ows",
-			// 	defaultParameters).addTo(map);
-
 			
-
 
 			var owsrootUrl = 'http://localhost:8080/geoserver/BIopen/ows';
 			var defaultParameters = {
@@ -69,25 +65,11 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			};
 				$.ajax({
 				url: URL,
-				dataType: 'jsonp',
+				dataType: 'json',
 				success: loadGeoJson
 			});
 
 			
-
-			// $.ajax({
-
-   //      		url: URL,
-
-
-
-   //      		success: function (data) {
-
-		 //       geojson = new L.geoJson(data, {
-
-		 //       style: {"color":"#ff7800","weight":2}})}
-		 //   });
-			// geojson.addTo(map);
 
 			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
