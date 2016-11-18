@@ -32,13 +32,11 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 						    fillOpacity: 0.8
 						};
 		
-			// $.getJSON(URL, function(data){
-			// 	L.geoJson(data);});
-	// 			pointToLayer: function (feature, latlng) {
-	// 			return L.circleMarker(latlng, geojsonMarkerOptions);
-	// 		}
-		
-	// }).addTo(map);
+			$.getJSON(URL, function(data){
+				L.geoJson(data);});
+				pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, geojsonMarkerOptions);
+			}.addTo(map);
 			
 
 			console.log(URL);
@@ -57,19 +55,19 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			// 	geojson.addData(data);
 			// };
 
-			$.ajax({
-				url: URL,
-				dataType: 'jsonp',
-				success: loadGeoJson
-				});
+			// $.ajax({
+			// 	url: URL,
+			// 	dataType: 'jsonp',
+			// 	success: loadGeoJson
+			// 	});
 
-			function loadGeoJson(data) {
-				console.log(data);
-				geojson.addData(data);
-				geojson.addTo(map);
+			// function loadGeoJson(data) {
+			// 	console.log(data);
+			// 	geojson.addData(data);
+			// 	geojson.addTo(map);
 
 				
-			};
+			// };
 				
 			
 			
