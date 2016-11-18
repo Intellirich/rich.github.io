@@ -2,7 +2,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 			
 
-			var owsrootUrl = 'http://localhost:8080/geoserver/BIopen/ows';
+			var owsrootUrl = 'https://localhost:8080/geoserver/BIopen/ows';
 			var defaultParameters = {
 
 		          service: 'WFS',
