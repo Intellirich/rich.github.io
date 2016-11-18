@@ -52,7 +52,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			geojson.addTo(map);
 
 			$.ajax({
-				dataType: 'html',
+				dataType: 'jsonp',
 				url: URL,
 				success: function(data){
 					console.log("sono qui");
