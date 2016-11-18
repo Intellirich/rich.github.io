@@ -33,8 +33,8 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 						};
 		
 			$.getJSON(URL, function(data){
-				L.geoJson(data);});
-				pointToLayer: function (feature, latlng) {
+				L.geoJson(data);})
+				pointToLayer: function (feature, latlng){
 				return L.circleMarker(latlng, geojsonMarkerOptions);
 			}.addTo(map);
 			
