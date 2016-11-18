@@ -42,24 +42,24 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			console.log(URL);
 
 
-			function addDataToMap(data, map){
-				var dataLayer = L.geoJson(data);
-				dataLayer.addTo(map);
-			}
+			// function addDataToMap(data, map){
+			// 	var dataLayer = L.geoJson(data);
+			// 	dataLayer.addTo(map);
+			// }
 
-			$.getJSON(URL, function(data){addDataToMap(data, map);});
+			// $.getJSON(URL, function(data){addDataToMap(data, map);});
 
-			// geojson.addTo(map);
+			geojson.addTo(map);
 
-			// $.ajax({
-			// 	dataType: 'json',
-			// 	url: URL,
-			// 	success: function(data){
-			// 		(data.features).each(function(key, data){
-			// 			geojson.addData(data);
-			// 		});
-			// 	}
-			// });
+			$.ajax({
+				dataType: 'jsonp',
+				url: URL,
+				success: function(data){
+					(data.features).each(function(key, data){
+						geojson.addData(data);
+					});
+				}
+			});
 
 			// $.getJSON(URL2, function(data){
 			// 	geojson.addData(data);
