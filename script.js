@@ -22,7 +22,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			var parameters = L.Util.extend(defaultParameters);
 			var URL = owsrootUrl + L.Util.getParamString(parameters);
 			// var URL = 'http://localhost:8080/geoserver/BIopen/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=BIopen%3Agrandi_strutt_vendita&maxFeatures=50&outputformat=GML2';
-			var geojson = new L.geoJSON();
+			// var geojson = new L.geoJSON();
 			// var geojsonMarkerOptions = {
 			// 			    radius: 8,
 			// 			    fillColor: "#ff7800",
@@ -41,17 +41,25 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 			console.log(URL);
 
-			geojson.addTo(map);
 
-			$.ajax({
-				dataType: 'json',
-				url: URL,
-				success: function(data){
-					(data.features).each(function(key, data){
-						geojson.addData(data);
-					});
-				}
-			});
+			function addDataToMap(data, map){
+				var dataLayer = L.geoJson(data);
+				dataLayer.addTo(map);
+			}
+
+			$.getJSON(URL, function(data){addDataToMap(data, map);});
+
+			// geojson.addTo(map);
+
+			// $.ajax({
+			// 	dataType: 'json',
+			// 	url: URL,
+			// 	success: function(data){
+			// 		(data.features).each(function(key, data){
+			// 			geojson.addData(data);
+			// 		});
+			// 	}
+			// });
 
 			// $.getJSON(URL2, function(data){
 			// 	geojson.addData(data);
