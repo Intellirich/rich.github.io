@@ -51,7 +51,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 						geojson.addData(data);
 					});
 				}
-			}).error(function(){});
+			});
 
 			// $.getJSON(URL2, function(data){
 			// 	geojson.addData(data);
