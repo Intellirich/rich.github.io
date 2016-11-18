@@ -56,6 +56,13 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			// 	console.log(data);
 			// 	geojson.addData(data);
 			// };
+
+			$.ajax({
+				url: URL,
+				dataType: 'jsonp',
+				success: loadGeoJson
+				});
+
 			function loadGeoJson(data) {
 				console.log(data);
 				geojson.addData(data);
@@ -64,11 +71,8 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				
 			};
 				
-			$.ajax({
-				url: URL,
-				dataType: 'jsonp',
-				success: loadGeoJson
-			});
+			
+			
 
 			
 
