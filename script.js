@@ -55,6 +55,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				dataType: 'jsonp',
 				url: URL,
 				success: function(data){
+					console.log("sono qui")
 					(data.features).each(function(key, data){
 						geojson.addData(data);
 					});
