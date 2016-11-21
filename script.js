@@ -15,85 +15,32 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 		          maxFeatures: '50',
 
-		          outputFormat: 'json',
+		          outputFormat: 'text/javascript',
+
+		          format_options: 'callback: getJson'
 
 				};
 
 			var parameters = L.Util.extend(defaultParameters);
 			var URL = owsrootUrl + L.Util.getParamString(parameters);
-			// var URL = 'http://localhost:8080/geoserver/BIopen/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=BIopen%3Agrandi_strutt_vendita&maxFeatures=50&outputformat=GML2';
-			// var geojson = new L.geoJSON();
-			// var geojsonMarkerOptions = {
-			// 			    radius: 8,
-			// 			    fillColor: "#ff7800",
-			// 			    color: "#000",
-			// 			    weight: 1,
-			// 			    opacity: 1,
-			// 			    fillOpacity: 0.8
-			// 			};
-		
-			// $.getJSON(URL, function(data){
-			// 	L.geoJson(data);})
-			// 	pointToLayer: function (feature, latlng){
-			// 	return L.circleMarker(latlng, geojsonMarkerOptions);
-			// }.addTo(map);
 			
-
 			console.log(URL);
 
-			$.getJSON(URL, function(data){
-				console.log(data);
-				L.geoJson(data).addTo(map);
+			$.ajax({
+				url: URL,
+				dataType: 'jsonp',
+				jsonpCallback: 'getJson',
+				success: handleJson
 			});
 
-
-			// function addDataToMap(data, map){
-			// 	var dataLayer = L.geoJson(data);
-			// 	dataLayer.addTo(map);
-			// }
-
-			// $.getJSON(URL, function(data){addDataToMap(data, map);});
-
-			// geojson.addTo(map);
-
-			// $.ajax({
-			// 	dataType: 'jsonp',
-			// 	url: URL,
-			// 	success: function(data){
-			// 		console.log("sono qui");
-			// 		(data.features).each(function(key, data){
-			// 			geojson.addData(data);
-			// 		});
-			// 	}
-			// });
-
-			// $.getJSON(URL2, function(data){
-			// 	geojson.addData(data);
-			// 	geojson.addTo(map);
-			// });
-			// console.log(geojson);
-			// geojson.addData();
-			// geojson.addTo(map);
-
-			// function loadGeoJson(data){
-
-			// 	console.log(data);
-			// 	geojson.addData(data);
-			// };
-
-			// $.ajax({
-			// 	url: URL,
-			// 	dataType: 'jsonp',
-			// 	success: loadGeoJson
-			// 	});
-
-			// function loadGeoJson(data) {
-			// 	console.log(data);
-			// 	geojson.addData(data);
-			// 	geojson.addTo(map);
-
-				
-			// };
+			function handleJson(data){
+				L.getJson(data, {
+					onEachFeature: onEachFeature,
+					pointToLayer: function(feature, latlng){
+						return L.circleMarker(latlng);
+					}
+				}).addTo(map);
+			}
 				
 			
 			
