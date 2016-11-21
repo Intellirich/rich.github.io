@@ -56,7 +56,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 		          maxFeatures: '50',
 		          srsname: 'EPSG:4326',
 
-		          outputFormat: 'text/javascript',
+		          outputFormat: 'application/json',
 
 				},
 				dataType: 'jsonp',
