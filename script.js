@@ -26,23 +26,43 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			
 			console.log(URL);
 
-			$.ajax({
-				url: URL,
-				dataType: 'jsonp',
-				jsonpCallback: 'getJson',
-				success: handleJson
-			});
+			// $.ajax({
+			// 	url: URL,
+			// 	dataType: 'jsonp',
+			// 	jsonpCallback: 'getJson',
+			// 	success: handleJson
+			// });
 
-			function handleJson(data){
-				L.getJson(data, {
-					onEachFeature: onEachFeature,
-					pointToLayer: function(feature, latlng){
-						return L.circleMarker(latlng);
-					}
-				}).addTo(map);
-			}
+			// function handleJson(data){
+			// 	L.getJson(data, {
+			// 		onEachFeature: onEachFeature,
+			// 		pointToLayer: function(feature, latlng){
+			// 			return L.circleMarker(latlng);
+			// 		}
+			// 	}).addTo(map);
+			// }
 				
-			
+			$.ajax('http://localhost:8080/geoserver/BIopen/wfs', {
+				type: 'GET',
+				data:{
+					service: 'WFS',
+
+		          version: '1.0.0',
+
+		          request: 'GetFeature',
+
+		          typeName: 'BIopen:grandi_strutt_vendita',
+
+		          maxFeatures: '50',
+		          srsname: 'EPSG:4326',
+
+		          outputFormat: 'text/javascript',
+
+				},
+				dataType: 'jsonp',
+				jsonpCallback: 'callback:loadFeatures',
+				jsonp: 'format_options'
+			});
 			
 
 			
