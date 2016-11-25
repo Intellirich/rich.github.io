@@ -48,43 +48,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				}
 			}).addTo(map)};
 				
-			// $.ajax('http://localhost:8080/geoserver/BIopen/wfs', {
-			// 	type: 'GET',
-			// 	data:{
-			// 		service: 'WFS',
-
-		 //          version: '1.0.0',
-
-		 //          request: 'GetFeature',
-
-		 //          typeName: 'BIopen:grandi_strutt_vendita',
-
-		 //          maxFeatures: '50',
-		 //          srsname: 'EPSG:4326',
-
-		 //          outputFormat: 'application/json',
-
-			// 	},
-			// 	dataType: 'jsonp',
-			// 	jsonpCallback: 'callback:loadFeatures',
-			// 	jsonp: 'format_options'
-			// });
-
-			// var exp_grandistruttvenditaJSON = new L.geoJson(exp_grandistruttvendita,{
-			// // onEachFeature: pop_grandistruttvendita,
-			// pointToLayer: function (feature, latlng) {  
-			// 	return L.circleMarker(latlng, {
-			// 		radius: 4.0,
-			// 		fillColor: '#FF0080',
-			// 		color: '#000000',
-			// 		weight: 1,
-			// 		opacity: 1.0,
-			// 		fillOpacity: 1.0
-			// 	})
-			// }});
-
-			// exp_grandistruttvenditaJSON.addTo(map);
-			
+						
 
 			
 
