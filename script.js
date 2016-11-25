@@ -35,7 +35,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 			function handleJson(data){
 				L.geoJson(data, {
-					console.log(data),
+
 					// onEachFeature: onEachFeature,
 					pointToLayer: function(feature, latlng){
 					return L.circleMarker(latlng, {
@@ -47,7 +47,10 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 					fillOpacity: 1.0
 					})
 				}
+
 			}).addTo(map)};
+
+			console.log(data);
 				
 						
 
