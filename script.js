@@ -13,7 +13,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 		          typeName: 'BIopen:grandi_strutt_vendita',
 
-		          maxFeatures: '50',
+		          maxFeatures: '100',
 
 		          outputFormat: 'text/javascript',
 
