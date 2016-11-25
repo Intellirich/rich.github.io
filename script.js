@@ -46,7 +46,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				L.geoJson(data, {
 					onEachFeature: function(feature, layer){
 						var keysArray = [];
-						for (var key in data.properties){
+						for (var key in feature.properties){
 						keysArray.push(key);
 						
 						};
