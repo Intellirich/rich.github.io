@@ -42,7 +42,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 					onEachFeature: function(feature, layer){
 						layer.bindPopup(function(){
 							// var el = $('<div/');
-							$get(URL).done(function(data){
+							$.get(URL).done(function(data){
 								popup.setContent(data);
 								popup.update();
 							});
