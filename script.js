@@ -69,7 +69,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			pointToLayer: function (feature, latlng) {  
 				return L.circleMarker(latlng, {
 					radius: 4.0,
-					fillColor: '#a2e674',
+					fillColor: '#FF0080',
 					color: '#000000',
 					weight: 1,
 					opacity: 1.0,
