@@ -65,7 +65,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			// });
 
 			var exp_grandistruttvenditaJSON = new L.geoJson(exp_grandistruttvendita,{
-			onEachFeature: pop_grandistruttvendita,
+			// onEachFeature: pop_grandistruttvendita,
 			pointToLayer: function (feature, latlng) {  
 				return L.circleMarker(latlng, {
 					radius: 4.0,
