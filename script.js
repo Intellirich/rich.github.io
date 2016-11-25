@@ -30,22 +30,27 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				url: URL,
 				dataType: 'jsonp',
 				jsonpCallback: 'getJson',
-				success: [handleJson, createPopUpElement]
+				success: handleJson
 			});
 
-			function createPopUpElement(data){
-				var keysArray = [];
-				for (var key in data.properties){
-					keysArray.push(key);
-				};
-				console.log(keysArray);
-				return keysArray;
-			};
+			// function createPopUpElement(data){
+			// 	var keysArray = [];
+			// 	for (var key in data.properties){
+			// 		keysArray.push(key);
+			// 	};
+			// 	console.log(keysArray);
+			// 	return keysArray;
+			// };
 
 			function handleJson(data){
 				L.geoJson(data, {
 					onEachFeature: function(feature, layer){
-						layer.bindPopup(feature.properties.titolare)
+						var keysArray = [];
+						for (var key in data.properties){
+						keysArray.push(key);
+						console.log(keysArray);
+				};
+						layer.bindPopup(feature.properties[keysArray[4]])
 					},
 					
 					pointToLayer: function(feature, latlng){
