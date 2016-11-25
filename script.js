@@ -11,9 +11,9 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 		          request: 'GetFeature',
 
-		          typeName: 'BIopen:grandi_strutt_vendita',
+		          typeName: 'BIopen:export_strutture_prova',
 
-		          maxFeatures: '500',
+		          maxFeatures: '50',
 
 		          outputFormat: 'text/javascript',
 
