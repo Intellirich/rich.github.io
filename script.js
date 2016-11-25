@@ -76,6 +76,8 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 					fillOpacity: 1.0
 				})
 			}});
+
+			exp_grandistruttvenditaJSON.addTo(map);
 			
 
 			
