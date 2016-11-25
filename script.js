@@ -33,9 +33,9 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				success: [handleJson, createPopUpElement]
 			});
 
-			function createPopUpElement(feature){
+			function createPopUpElement(data){
 				var keysArray = [];
-				for (var key in feature.properties){
+				for (var key in data.properties){
 					keysArray.push(key);
 				};
 				console.log(keysArray);
