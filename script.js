@@ -35,9 +35,9 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 			function handleJson(data){
 				L.geoJson(data, {
-					onEachFeature: onEachFeature,
+					// onEachFeature: onEachFeature,
 					pointToLayer: function(feature, latlng){
-						return L.circleMarker(latlng, {
+					return L.circleMarker(latlng, {
 					radius: 4.0,
 					fillColor: '#FF0080',
 					color: '#000000',
@@ -45,8 +45,8 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 					opacity: 1.0,
 					fillOpacity: 1.0
 					})
-				}).addTo(map);
-			}};
+				}
+			}).addTo(map)};
 				
 			// $.ajax('http://localhost:8080/geoserver/BIopen/wfs', {
 			// 	type: 'GET',
