@@ -48,8 +48,9 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 						var keysArray = [];
 						for (var key in data.properties){
 						keysArray.push(key);
+						
+						};
 						console.log(keysArray);
-				};
 						layer.bindPopup(feature.properties[keysArray[4]])
 					},
 					
