@@ -41,12 +41,12 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 					// },
 					onEachFeature: function(feature, layer){
 						layer.bindPopup(function(){
-							var el = $('<div/');
+							// var el = $('<div/');
 							$get(URL).done(function(data){
-								el.setContent(data);
+								popup.setContent(data);
 								popup.update();
 							});
-							return el;
+							// return el;
 						})
 					},
 					pointToLayer: function(feature, latlng){
