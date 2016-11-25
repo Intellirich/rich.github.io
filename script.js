@@ -35,9 +35,19 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 
 			function handleJson(data){
 				L.geoJson(data, {
+					// onEachFeature: function(feature, layer){
+					// 	layer.bindPopup(feature.properties.titolare + '<br>'
+					// 					+ feature.properties.indirizzo)
+					// },
 					onEachFeature: function(feature, layer){
-						layer.bindPopup(feature.properties.titolare + '<br>'
-										+ feature.properties.indirizzo)
+						layer.bindPopup(function(){
+							var el = $('<div/');
+							$get(URL).done(function(data){
+								el.setContent(data);
+								popup.update();
+							});
+							return el;
+						})
 					},
 					pointToLayer: function(feature, latlng){
 					return L.circleMarker(latlng, {
