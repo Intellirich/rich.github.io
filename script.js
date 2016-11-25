@@ -30,7 +30,7 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				url: URL,
 				dataType: 'jsonp',
 				jsonpCallback: 'getJson',
-				success: handleJson
+				success: [handleJson, createPopUpElement]
 			});
 
 			function createPopUpElement(feature){
