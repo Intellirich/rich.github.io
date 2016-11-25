@@ -34,10 +34,11 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 			});
 
 			function createPopUpElement(feature){
-				keysArray = [];
+				var keysArray = [];
 				for (var key in feature.properties){
 					keysArray.push(key);
 				};
+				console.log(keysArray);
 				return keysArray;
 			};
 
