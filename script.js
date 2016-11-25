@@ -33,11 +33,18 @@ var map = L.map('mapid').setView([45.4632, 9.1886], 12);
 				success: handleJson
 			});
 
+			function createPopUpElement(feature){
+				var keysArray = [];
+				for (var key in feature.properties){
+					keysArray.push(key);
+				};
+				return keysArray;
+			};
+
 			function handleJson(data){
 				L.geoJson(data, {
 					onEachFeature: function(feature, layer){
-						layer.bindPopup(feature.properties[4] + '<br>'
-										+ feature.properties.indirizzo)
+						layer.bindPopup(keysArray[4])
 					},
 					
 					pointToLayer: function(feature, latlng){
